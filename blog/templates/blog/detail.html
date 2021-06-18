@@ -1,0 +1,15 @@
+{% extends 'personal_portfolio/base.html' %}
+<!doctype html>
+{% load static %}
+<body>
+<html lang="en">
+
+{% block content %}
+
+<h1>{{ blogs.title }}</h1>
+
+<h2>-- {{ blogs.created_date }} --</h2>
+
+{{ blogs.post|safe}}
+
+{% endblock %}

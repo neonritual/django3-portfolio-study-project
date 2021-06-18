@@ -1,0 +1,35 @@
+
+{% extends 'personal_portfolio/base.html' %}
+<!doctype html>
+{% load static %}
+<body>
+<html lang="en">
+
+{% block content %}
+        <h1>Testing 123</h1>
+        <br>
+        <img src="{% static 'portfolio/maru.png' %}">
+        <br>
+        <br>
+        <br><a href="{% url 'blog:blogs' %}">Visit my Blog</a>
+        <br>
+        <br>
+
+        <h2>
+          {% for project in projects %}
+          {{ project.title }}
+          <br>
+          {{ project.description }}
+          <br>
+          <img src="{{ project.image.url }}" alt="" height=200>
+          {% if project.url %}
+          <br>
+          <a href="{{ project.url }}">Link</a>
+          {% endif %}
+          <br>
+          {% endfor %}
+        </h2>
+{% endblock %}
+
+  </body>
+</html>

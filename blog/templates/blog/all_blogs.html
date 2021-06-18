@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'personal_portfolio/base.html' %}
+<!doctype html>
+{% load static %}
+<body>
+<html lang="en">
+
+{% block content %}
+<head>
+    <title>Django Blog Test</title>
+  </head>
+  <body>
+
+    <div class="text-center">
+      <h1 >Blog</h1>
+    <p>Valerie has written {{ blog.count }} blog{{ blog.count|pluralize }}.</p>
+
+      <div>
+
+        {% for blog in blog %}
+
+      <a href="{% url 'blog:detail' blog.id %}"><h2> {{ blog.title }}</h2></a>
+      <br>
+      <h3>{{ blog.created_date }}</h3>
+
+      <br>
+
+      <p>{{ blog.post|striptags|truncatewords:50  }}</p>
+      <br>
+      {% endfor %}
+      <br>
+      </div>
+      </div>
+{% endblock %}
+
+
+  </body>
+</html>
